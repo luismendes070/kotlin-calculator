@@ -30,36 +30,45 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        try{
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            super.onCreate(savedInstanceState)
 
-        resultTextView = findViewById(R.id.resultTextView)
+            setContentView(R.layout.activity_main)
 
-        val buttons = listOf(
-            findViewById<Button>(R.id.buttonOne),
-            // Include references to all the other buttons in a similar way
-        )
+            resultTextView = findViewById(R.id.resultTextView)
 
-        for (button in buttons) {
-            button.setOnClickListener(this)
+            val buttons = listOf(
+                findViewById<Button>(R.id.buttonOne),
+                // Include references to all the other buttons in a similar way
+            )
+
+            for (button in buttons) {
+                button.setOnClickListener(this)
+            }
+
+            binding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+            setSupportActionBar(binding.toolbar)
+
+            val navController = findNavController(R.id.nav_host_fragment_content_main)
+            appBarConfiguration = AppBarConfiguration(navController.graph)
+            setupActionBarWithNavController(navController, appBarConfiguration)
+
+            binding.fab.setOnClickListener { view ->
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAnchorView(R.id.fab)
+                    .setAction("Action", null).show()
+            }
+        }catch(e:Exception){
+
+        }finally{
+
         }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
-        }
     } // end method onCreate
 
     override fun onClick(view: View?) {
@@ -96,6 +105,41 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
         }
+    }
+
+    private fun performOperation(operator: String) {
+        operand1 = currentNumber.toString().toDouble()
+        currentNumber.clear()
+        currentOperator = operator
+    }
+
+    private fun performEquals() {
+        if (currentNumber.isNotEmpty() && currentOperator.isNotEmpty()) {
+            operand2 = currentNumber.toString().toDouble()
+            currentNumber.clear()
+            when (currentOperator) {
+                "+" -> currentNumber.append(operand1 + operand2)
+                "-" -> currentNumber.append(operand1 - operand2)
+                "*" -> currentNumber.append(operand1 * operand2)
+                "/" -> {
+                    if (operand2 != 0.0) {
+                        currentNumber.append(operand1 / operand2)
+                    } else {
+                        currentNumber.append("Error")
+                    }
+                }
+            }
+            resultTextView.text = currentNumber.toString()
+            currentOperator = ""
+        }
+    }
+
+    private fun clearCalculator() {
+        currentNumber.clear()
+        resultTextView.text = "0"
+        currentOperator = ""
+        operand1 = 0.0
+        operand2 = 0.0
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
