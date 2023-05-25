@@ -98,6 +98,41 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         }
     }
 
+    private fun performOperation(operator: String) {
+        operand1 = currentNumber.toString().toDouble()
+        currentNumber.clear()
+        currentOperator = operator
+    }
+
+    private fun performEquals() {
+        if (currentNumber.isNotEmpty() && currentOperator.isNotEmpty()) {
+            operand2 = currentNumber.toString().toDouble()
+            currentNumber.clear()
+            when (currentOperator) {
+                "+" -> currentNumber.append(operand1 + operand2)
+                "-" -> currentNumber.append(operand1 - operand2)
+                "*" -> currentNumber.append(operand1 * operand2)
+                "/" -> {
+                    if (operand2 != 0.0) {
+                        currentNumber.append(operand1 / operand2)
+                    } else {
+                        currentNumber.append("Error")
+                    }
+                }
+            }
+            resultTextView.text = currentNumber.toString()
+            currentOperator = ""
+        }
+    }
+
+    private fun clearCalculator() {
+        currentNumber.clear()
+        resultTextView.text = "0"
+        currentOperator = ""
+        operand1 = 0.0
+        operand2 = 0.0
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
