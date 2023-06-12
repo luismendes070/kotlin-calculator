@@ -47,4 +47,5 @@
     <string name="equals_sign">=</string>
     <string name="enter_operand_1">Enter operand 1</string>
     <string name="enter_operand_2">Enter operand 2</string>
+    <string name="fab_calculate_content_description">Calculate</string>
 </resources>
