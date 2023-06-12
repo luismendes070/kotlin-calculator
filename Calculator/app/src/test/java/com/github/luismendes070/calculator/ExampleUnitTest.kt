@@ -1,4 +1,4 @@
-package com.example.happybirthday
+package com.github.luismendes070.calculator
 
 import org.junit.Test
 

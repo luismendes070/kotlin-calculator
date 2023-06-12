@@ -43,11 +43,4 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="valueA">0</string>
-    <string name="valueOperator">+\n</string>
-    <string name="valueB">0\n</string>
-    <string name="valueEquals">=</string>
-    <string name="valueResult">0</string>
-    <string name="operand_1">Operand 1</string>
-    <string name="operand_2">Operand 2</string>
 </resources>
