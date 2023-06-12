@@ -6,6 +6,122 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!-- First Area -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Add your UI components for the first area -->
+                <EditText
+                    android:id="@+id/operand1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="number"
+                    android:hint="@string/enter_operand_1"
+                    android:inputType="numberDecimal"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp" />
+
+            </LinearLayout>
+
+            <!-- Second Area -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Add your UI components for the second area -->
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    android:text="@string/plus_sign" />
+
+            </LinearLayout>
+
+            <!-- Third Area -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Add your UI components for the third area -->
+                <EditText
+                    android:id="@+id/operand2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:autofillHints="number"
+                    android:hint="@string/enter_operand_2"
+                    android:inputType="numberDecimal"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!-- Fourth Area -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Add your UI components for the fourth area -->
+                <Button
+                    android:id="@+id/buttonEquals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/equals_sign" />
+
+            </LinearLayout>
+
+            <!-- Fifth Area -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Add your UI components for the fifth area -->
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,41 +131,13 @@
         android:padding="16dp"
         tools:context=".CalculatorActivity">
 
-        <EditText
-            android:id="@+id/operand1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="number"
-            android:hint="@string/enter_operand_1"
-            android:inputType="numberDecimal"
-            android:minWidth="48dp"
-            android:minHeight="48dp" />
 
-        <Button
-            android:id="@+id/buttonAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:padding="8dp"
-            android:text="@string/plus_sign" />
 
-        <EditText
-            android:id="@+id/operand2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:autofillHints="number"
-            android:hint="@string/enter_operand_2"
-            android:inputType="numberDecimal"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:padding="8dp" />
 
-        <Button
-            android:id="@+id/buttonEquals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/equals_sign" />
+
+
+
+
 
         <!-- Add any additional UI components for the calculator here -->
 
