@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -19,27 +19,35 @@
             android:id="@+id/operand1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="number"
+            android:hint="@string/enter_operand_1"
             android:inputType="numberDecimal"
-            android:hint="Enter operand 1" />
+            android:minWidth="48dp"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/operand2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:autofillHints="number"
+            android:hint="@string/enter_operand_2"
             android:inputType="numberDecimal"
-            android:hint="Enter operand 2" />
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="8dp" />
 
         <Button
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+" />
+            android:text="@string/plus_sign" />
 
         <Button
             android:id="@+id/buttonEquals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="=" />
+            android:text="@string/equals_sign" />
 
         <!-- Add any additional UI components for the calculator here -->
 
@@ -48,7 +56,7 @@
 
 
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_content_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
