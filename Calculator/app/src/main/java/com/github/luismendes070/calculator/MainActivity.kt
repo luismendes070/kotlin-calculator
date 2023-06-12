@@ -1,6 +1,8 @@
 package com.github.luismendes070.calculator
 
 // import android.os.Bundle
+import android.app.Activity
+import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    private val NEW_SCREEN_REQUEST_CODE = 123
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -65,7 +71,12 @@ class MainActivity : AppCompatActivity() {
 
             // Add a TextWatcher to monitor changes in the operands' EditText fields
             val textWatcher = object : TextWatcher {
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -87,6 +98,25 @@ class MainActivity : AppCompatActivity() {
         if (operand1 != null && operand2 != null) {
             val result = operand1 + operand2 // Perform your desired calculation here
             // Display the result in a TextView or any other way you prefer
+        }
+    }
+
+    // Example: Handle a button click to open the new screen
+    fun openNewScreen() {
+        val intent = Intent(this, NewScreenActivity::class.java)
+        startActivityForResult(intent, NEW_SCREEN_REQUEST_CODE)
+    }
+
+    // Handle the result from the new screen
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == NEW_SCREEN_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val resultValue = data?.getStringExtra("key")
+                // Do something with the result value
+            } else {
+                // Handle other result codes if needed
+            }
         }
     }
 
