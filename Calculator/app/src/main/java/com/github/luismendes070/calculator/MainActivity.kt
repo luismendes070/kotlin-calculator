@@ -1,5 +1,6 @@
 package com.github.luismendes070.calculator
 
+// import android.util.Log
 // import android.os.Bundle
 import android.app.Activity
 import android.content.Intent
@@ -9,6 +10,7 @@ import android.widget.EditText
 // import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -18,6 +20,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import com.github.luismendes070.calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -98,6 +101,17 @@ class MainActivity : AppCompatActivity() {
         if (operand1 != null && operand2 != null) {
             val result = operand1 + operand2 // Perform your desired calculation here
             // Display the result in a TextView or any other way you prefer
+
+            // Find the TextView using its ID
+            val resultTextView = findViewById<TextView>(R.id.result)
+
+            // Set the result text
+            resultTextView.text = "The result is: $result"
+
+// Inside your calculation logic or where you have the result
+            // val result = 42 // Replace with your actual result
+            Log.d("Calculation", "The result is: $result")
+
         }
     }
 
