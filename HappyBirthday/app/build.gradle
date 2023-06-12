@@ -36,6 +36,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
+        prefab true
         compose true
         viewBinding true
     }
@@ -43,14 +44,12 @@ android {
         kotlinCompilerExtensionVersion = "1.8.20"
     }
 
-    dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-        repositories {
-            google()
-            mavenCentral()
-        }
-    }
+}
 
+repositories {
+    mavenLocal()
+    google()
+    mavenCentral()
 }
 
 dependencies {
